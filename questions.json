@@ -1,0 +1,122 @@
+{
+    "Selon vous, choisir un métier, c'est :": {
+        "reponse 1": "S'assurer des débouchés, un emploi",
+        "reponse 2": "Réaliser tous ses rêves"
+    },
+    "Vous passez des vacances à 15 dans un appartement à la mer :": {
+        "reponse 1": "Vous vous souciez de ce que chacun a envie de faire, pour satisfaire tout le monde : bronzette, surf, drague",
+        "reponse 2": "Vous mettez sur pied un planning précis des activités : kayak le lundi, boîte de nuit le mardi, bain de minuit le mercredi"
+    },
+    "J'aime...": {
+        "reponse 1": "Personnaliser les choses, inventer, me démarquer",
+        "reponse 2": "Faire des choses concrètes (activités manuelles, expériences ou technologies)"
+    },
+    "Dans votre métier plus tard vous voulez :": {
+        "reponse 1": "Être sur le terrain d’une manière ou d’une autre",
+        "reponse 2": "Apprendre de nouvelles choses sans cesse"
+    },
+    "Vous avez deux heures pour une activité dans la semaine, vous choisissez plutôt :": {
+        "reponse 1": "Une activité bénévole (soutien scolaire, aide aux sans abris, animation du club enfants…)",
+        "reponse 2": "Une activité sportive, de la randonnée ou le club de mécanique auto-moto"
+    },
+    "C’est bientôt l’anniversaire de votre meilleur(e) ami(e) :": {
+        "reponse 1": "Vous réalisez au choix la déco, les plats ou le montage de la playlist",
+        "reponse 2": "Vous prenez en main le projet de soirée surprise"
+    },
+    "Vous êtes une personnalité dans le monde de la coiffure car :": {
+        "reponse 1": "Vous avez développé la plus grande chaîne de salons",
+        "reponse 2": "Vos créations sont demandées par toutes les stars et autres VIP"
+    },
+    "Ce qui vous correspond le mieux :": {
+        "reponse 1": "J’ai un côté passionné(e)",
+        "reponse 2": "Je prends des initiatives, je me lance facilement dans des projets"
+    },
+    "Face une situation :": {
+        "reponse 1": "J'analyse, je réfléchis",
+        "reponse 2": "Je passe à l'action"
+    },
+    "Dans l'équipe sportive :": {
+        "reponse 1": "J'apprends à jouer aux débutants",
+        "reponse 2": "Je suis capitaine de l'équipe"
+    },
+    "Vous rapportez chez vous un meuble en kit type IKEA :": {
+        "reponse 1": "Vous attaquez bille en tête, sans vous poser de questions, ce qui compte c'est de se lancer",
+        "reponse 2": "Vous lisez attentivement les instructions, faites l'inventaire de vos outils avant de vous y mettre étape par étape"
+    },
+    "Votre chambre est plutôt :": {
+        "reponse 1": "Claire, en ordre, chaque chose à sa place, on s'y retrouve",
+        "reponse 2": "Personnalisée, inspirante, elle vous ressemble"
+    },
+    "Ce qui vous ressemble le plus :": {
+        "reponse 1": "J'ai tout le temps plein d'idées, ça bouillonne",
+        "reponse 2": "Je cherche tout le temps le pourquoi du comment"
+    },
+    "Votre truc, c'est plutôt :": {
+        "reponse 1": "Ecouter, conseiller, aider etc.",
+        "reponse 2": "Raisonner, tergiverser, débattre etc."
+    },
+    "Vous travaillez dans la finance :": {
+        "reponse 1": "Vous êtes directeur(rice) financier(e) d'une grande entreprise",
+        "reponse 2": "Vous êtes un(e) analyste financier(e) de haut vol qui sait décrypter les tendances du marché"
+    },
+    "Je choisis une école pour :": {
+        "reponse 1": "La reconnaissance de son enseignement pointu et le contenu des programmes qui vous intéresse déjà",
+        "reponse 2": "Son bon encadrement et ses débouchés sûrs"
+    },
+    "Ce qui vous caractérise le plus :": {
+        "reponse 1": "J’ai besoin de voir des gens",
+        "reponse 2": "J’ai besoin de liberté"
+    },
+    "Votre association propose un stand de vente sur un festival :": {
+        "reponse 1": "Vous avez pris les devants, montez le projet",
+        "reponse 2": "Vous accueillez sur le stand, renseignez et conseillez les acheteurs potentiels"
+    },
+    "Vous seriez plutôt :": {
+        "reponse 1": "Chercheur(se) de renommée internationale",
+        "reponse 2": "A la tête d'une petite ou grande entreprise"
+    },
+    "Le groupe de mots qui vous correspond le mieux :": {
+        "reponse 1": "Réalisation, résultat, pratiquer, concrétiser",
+        "reponse 2": "Méthode, rigueur, appliquer un protocole, faire appliquer une règle"
+    },
+    "Vous partiriez plus volontiers six mois :": {
+        "reponse 1": "En mission scientifique pour explorer l'Arctique ou au sein d'un observatoire astronomique au Chili",
+        "reponse 2": "En mission humanitaire pour aider des populations en Afrique ou au sein d'un camp de réfugiés en Grèce"
+    },
+    "Vous avez une après-midi devant vous :": {
+        "reponse 1": "Vous faites des recherches sur internet sur votre dernier sujet préféré ou vous vous plongez dans un bouquin ou un article",
+        "reponse 2": "Vous en profitez pour remettre de l'ordre dans votre chambre ou faire du classement divers (en fonction de vos centres d'intérêt)"
+    },
+    "Tout(e) petit(e) vous auriez plutôt rêvé :": {
+        "reponse 1": "De devenir aventurier(e)",
+        "reponse 2": "De sauver le monde"
+    },
+    "On apprend mieux :": {
+        "reponse 1": "Grâce à des méthodes",
+        "reponse 2": "Grâce aux autres"
+    },
+    "Si vous devez pratiquer une activité créative, vous choisissez l'atelier :": {
+        "reponse 1": "Création bois, cuisine ou montage vidéo",
+        "reponse 2": "Ecriture, art plastique ou musique"
+    },
+    "Ce qui vous correspond le mieux :": {
+        "reponse 1": "Avoir l’esprit critique",
+        "reponse 2": "Transmettre"
+    },
+    "Vous diriez plutôt :": {
+        "reponse 1": "Je suis fier(e) de mes responsabilités ou de ma réussite financière",
+        "reponse 2": "Je suis fier(e) de mon savoir-faire ou de ma réalisation"
+    },
+    "Ce qui compte le plus pour qu'une journée de vacances soit réussie :": {
+        "reponse 1": "C'est que tout soit bien planifié, organisé, prévu",
+        "reponse 2": "C'est d'être actif(ve) physiquement"
+    },
+    "Vous êtes plutôt :": {
+        "reponse 1": "Réfléchir, analyser, chercher à comprendre",
+        "reponse 2": "Réaliser, pratiquer, voir le résultat"
+    },
+    "Vous aimez :": {
+        "reponse 1": "Le travail bien fait",
+        "reponse 2": "Être meilleur(e) que les autres"
+    }
+}

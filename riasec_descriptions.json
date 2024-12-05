@@ -1,0 +1,80 @@
+{
+    "Réaliste": {
+        "description": "Vous avez un profil réaliste à {prc_reponses}, <br><br>Vous préférez le concret et la technique. Vous appréciez en général les activités physiques, manuelles ou techniques. Vous voulez appliquer ce que vous apprenez et voir le résultat de ce que vous faites. Vous aimez la pratique, l’expérimentation, la réalisation. <br><br>Vous pouvez être à l’aise avec la technologie, le bricolage, la réalisation d'expériences. Vous avez le goût du terrain, et en général vous aimez être à l’extérieur. Certain.e.s sont tourné.e.s vers la nature et les animaux. <br><br>Vous serez souvent heureux.se dans un travail qui vous permet d’utiliser vos talents manuels ou techniques tout en étant actif.ve physiquement en l’effectuant. Pragmatique, vous avez tendance à aller droit au but, avec persévérance, vous travaillez avec efficacité. <br><br>Enfin, vous avez le goût du travail bien fait.",
+        "metiers": [
+            "Technicien.ne de maintenance",
+            "Ingénieur.e en construction",
+            "Conducteur.rice de travaux",
+            "Pilote d’avion",
+            "Mécanicien.ne industriel.le",
+            "Chargé.e de logistique",
+            "Paysagiste",
+            "Agriculteur.rice biologique"
+        ]
+    },
+    "Investigateur": {
+        "description": "Vous avez un profil d'investigateur à {prc_reponses}, <br><br>Vous êtes guidé.e par le besoin de comprendre. C'est un profil tourné vers la réflexion. <br><br>Les personnes de profil investigateur aiment raisonner, résoudre des problèmes complexes, enquêter, se poser des questions, rechercher des informations afin de mieux comprendre leur environnement. Elles aiment apprendre sans cesse de nouvelles choses et ressentent généralement le besoin d'étudier et de se former. Elles apprécient la théorie, conceptualiser, se cultiver. Des personnes souvent attirées par ce qui est d’ordre intellectuel ou scientifique, qui aiment analyser des idées, étudier des faits ou des comportements, comprendre des phénomènes… <br><br>Vous serez à l’aise dans un univers où vous pouvez confronter vos opinions, aiguiser votre esprit critique. Vous serez bien dans un travail où vous pourrez utiliser vos connaissances et vos capacités intellectuelles, votre sens de l'analyse et du raisonnement.",
+        "metiers": [
+            "Chercheur.se en biologie",
+            "Ingénieur.e en intelligence artificielle",
+            "Médecin spécialiste",
+            "Statisticien.ne",
+            "Journaliste d’investigation",
+            "Enseignant.e chercheur.se",
+            "Sociologue",
+            "Géologue"
+        ]
+    },
+    "Artiste": {
+        "description": "Vous avez un profil artiste à {prc_reponses}. <br><br>Vous avez une personnalité ouverte et curieuse. <br><br>Profil de l’imagination, il correspond à des personnes qui suivent leurs intuitions, leurs émotions, leurs passions. Souvent créatives, elles ont de l’imagination, des idées, qu’elles peuvent exprimer par le biais de l’expression artistique (musique, dessin, écriture, danse, théâtre…). Elles sont souvent attirées par les univers imaginaires, aiment rêver. Curiosité, besoin de découvertes, de variété, peur de la routine, envie de liberté les caractérisent également. Les profils artistes aiment se démarquer, valorisent ce qui est original et ne veulent pas d’un métier \"banal\". <br><br>D’une manière ou d’une autre, vous avez besoin de vous exprimer dans votre métier. Imagination foisonnante et/ou goût certain pour la nouveauté font de vous quelqu’un de créatif qui est en général attiré par des métiers artistiques ou d’innovation. <br><br>Vous avez par ailleurs besoin de combiner travail et épanouissement personnel.",
+        "metiers": [
+            "Designer graphique",
+            "Photographe",
+            "Rédacteur.rice publicitaire",
+            "Metteur.se en scène",
+            "Musicien.ne",
+            "Illustrateur.rice",
+            "Architecte",
+            "Scénariste"
+        ]
+    },
+    "Social": {
+        "description": "Vous avez un profil social à {prc_reponses}, <br><br>Votre priorité est le contact humain. Ce profil de la coopération correspond à des personnes tournées vers les autres. Coopératives, elles aiment être entourées, partager, réunir et veulent éviter les situations conflictuelles. <br><br>L’aide aux autres, l’esprit d’équipe ou la communication sont des valeurs et des atouts importants chez les personnes de profil social. Diplomates, elles sont douées pour la médiation… Vous avez donc besoin de beaucoup de relationnel dans votre métier. <br><br>Pour certain.es, c’est la facilité à aller vers les autres qui va les pousser vers tous les métiers de communication, voire de négociation... Le contact sera au cœur de leur métier. <br><br>Pour beaucoup ce profil social correspond surtout au besoin de se sentir utile : écouter, aider, transmettre, prendre soin... Si c’est votre cas, les autres seront au cœur de votre métier.",
+        "metiers": [
+            "Infirmier.e",
+            "Assistant.e social.e",
+            "Éducateur.rice spécialisé.e",
+            "Professeur.e",
+            "Coach sportif.ve",
+            "Médiateur.rice culturel.le",
+            "Conseiller.ère en ressources humaines",
+            "Animateur.rice socioculturel.le"
+        ]
+    },
+    "Entreprenant": {
+        "description": "Un profil entreprenant ressort de vos réponses à {prc_reponses}. <br><br>Vous êtes tourné.e vers l’action, dans le sens de la capacité à agir. <br><br>Ce profil caractérise des personnalités dynamiques, réactives, qui aiment décider par elles-mêmes et souvent diriger. Elles aiment se mesurer aux autres ou à elles-mêmes. Elles osent et sont capables d’initiatives et parfois de prendre des risques. Ambitieuses, elles sont motivées par la réussite financière, le succès ou le pouvoir. <br><br>Vous êtes donc à priori quelqu’un de déterminé et cela vous aide à convaincre. <br><br>Vous prenez les choses en main, les responsabilités ne vous font pas peur. Vous avez besoin d’autonomie et vous aimez relever des challenges.",
+        "metiers": [
+            "Chef.fe de projet",
+            "Responsable commercial.e",
+            "Entrepreneur.e",
+            "Directeur.rice marketing",
+            "Consultant.e en stratégie",
+            "Courtier.ère en assurances",
+            "Officier.ère dans l'armée",
+            "Agent.e immobilier.e"
+        ]
+    },
+    "Conventionnel": {
+        "description": "Un profil conventionnel ressort de vos réponses à {prc_reponses}. <br><br>De profil conventionnel avant tout, vous êtes en général organisé.e, ordonné.e, vous appréciez de pouvoir vous appuyer sur une méthode, une règle, un protocole. <br><br>Vous appréciez le cadre, la structure et vous avez en général besoin de stabilité dans votre métier. Les profils conventionnel planifient leur travail, leur vie. Ce sont des personnes qui aiment les objectifs clairs, avoir une tâche bien définie à accomplir, une place bien déterminée, des repères stables. Perfectionnistes et consciencieuses, elles aiment le travail bien fait. <br><br>Vous êtes capable de rigueur. Vous disposez en effet en général d'un esprit de déduction, d'une intelligence logique, très structurée, qui ne laisse pas place à l'improvisation. <br><br>En général vous êtes à l’aise avec les chiffres, voire matheux(se), et si ce n’est pas le cas vous saurez faire appliquer des règles, contrôler, gérer… <br><br>De nombreux métiers pourront vous permettre de faire valoir votre sens de la méthode et de l’organisation.",
+        "metiers": [
+            "Comptable",
+            "Auditeur.rice financier.e",
+            "Notaire",
+            "Analyste de données",
+            "Gestionnaire de paie",
+            "Responsable qualité",
+            "Archiviste",
+            "Coordinateur.rice administratif.ve"
+        ]
+    }
+}
