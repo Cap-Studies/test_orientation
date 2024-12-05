@@ -215,4 +215,15 @@ if st.button("Soumettre"):
 
             st.markdown("<br><br>", unsafe_allow_html=True)
 
-
+st.markdown(
+    f"""
+    <div class="whatsapp-btn-container">
+        <div class="whatsapp-content">
+            <a href="{whatsapp_link}" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
+                <span class="whatsapp-text">Contactez-nous sur WhatsApp</span>
+            </a>
+        </div>
+    </div>
+    """, unsafe_allow_html=True
+)
