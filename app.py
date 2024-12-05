@@ -50,20 +50,20 @@ st.markdown(
             align-items: center;        /* Centrer verticalement les éléments */
             margin-left: 660px;         /* Décalage pour éviter la sidebar */
         }
-        
+
          /* Modifier le fond de la page entière */
         .main {
             background-color: #f2f2f2; /* Fond gris clair */
             padding: 20px; /* Ajout d'un espace autour du contenu principal */
             border-radius: 8px; /* Optionnel : coins arrondis */
         }
-        
+
         /* Modifier la largeur de la sidebar */
         section[data-testid="stSidebar"] {
             min-width: 450px; /* Largeur minimale */
             max-width: 450px; /* Largeur maximale */
         }
-        
+
         .whatsapp-content img {
             width: 50px;                /* Taille du logo */
             height: 50px;
@@ -89,6 +89,12 @@ st.markdown(
 
             .whatsapp-content .whatsapp-text {
                 font-size: 14px;        /* Réduction de la taille du texte */
+            }
+
+            /* Réduction de la sidebar à 300px pour mobile */
+            section[data-testid="stSidebar"] {
+                width: 300px; /* Réduit la largeur de la sidebar */
+                display: block; /* S'assurer qu'elle est bien affichée */
             }
         }
     </style>
@@ -186,32 +192,20 @@ if st.button("Soumettre"):
         st.plotly_chart(fig)
 
         for riasec_type, percentage in sorted_riasec:
-            prc_reponses=f"{int(percentage):}%"
+            prc_reponses = f"{int(percentage):}%"
             description = riasec_descriptions[riasec_type]["description"].format(
                 prc_reponses=prc_reponses
             )
-            st.markdown(f"### {riasec_type} : {prc_reponses}")
-            st.write(description, unsafe_allow_html=True)
+            st.subheader(f"{riasec_type} - {int(percentage)}%")
+            st.write(description)
 
-            st.markdown(f"#### Métiers correspondants au profil {riasec_type}:")
-            for metier in riasec_descriptions[riasec_type]["metiers"]:
-                st.markdown(f"- {metier}")
-
-            st.markdown("<br><br>", unsafe_allow_html=True)
-
-# Ajouter le bouton WhatsApp
-st.markdown(
-    f"""
-    <div class="whatsapp-btn-container">
-        <div class="whatsapp-content">
-            <a href="{whatsapp_link}" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
-            </a>
-            <div class="whatsapp-text">
-                Discutons de vos résultats sur WhatsApp et trouvons votre plan d'orientation idéal
+        st.markdown(
+            """
+            <div class="whatsapp-btn-container">
+                <div class="whatsapp-content">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/WhatsApp_logo.svg" alt="WhatsApp logo">
+                    <span class="whatsapp-text">Contactez-nous sur WhatsApp pour plus d'informations !</span>
+                </div>
             </div>
-        </div>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+            """, unsafe_allow_html=True
+        )
