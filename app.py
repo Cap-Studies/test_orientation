@@ -199,21 +199,20 @@ if st.button("Soumettre"):
 
         st.plotly_chart(fig)
 
+        # Affichage détaillé des résultats
+        st.markdown("<br>", unsafe_allow_html=True)
         for riasec_type, percentage in sorted_riasec:
-            prc_reponses = f"{int(percentage)}%"
-            description = riasec_descriptions[riasec_type]
-            st.markdown(f"**{riasec_type}** ({prc_reponses}): {description}")
+            prc_reponses = f"{int(percentage):}%"
+            description = riasec_descriptions[riasec_type]["description"].format(
+                prc_reponses=prc_reponses
+            )
+            st.markdown(f"### {riasec_type} : {prc_reponses}")
+            st.write(description, unsafe_allow_html=True)
 
-# Affichage du bouton WhatsApp
-st.markdown(
-    f"""
-    <div class="whatsapp-btn-container">
-        <div class="whatsapp-content">
-            <a href="{whatsapp_link}" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
-                <span class="whatsapp-text">Contactez-nous sur WhatsApp</span>
-            </a>
-        </div>
-    </div>
-    """, unsafe_allow_html=True
-)
+            st.markdown(f"#### Métiers correspondants au profil {riasec_type}:")
+            for metier in riasec_descriptions[riasec_type]["metiers"]:
+                st.markdown(f"- {metier}")
+
+            st.markdown("<br><br>", unsafe_allow_html=True)
+
+
