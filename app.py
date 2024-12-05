@@ -2,6 +2,7 @@ import json
 import streamlit as st
 import plotly.graph_objects as go
 
+# Configuration de la page
 st.set_page_config(
     page_title="Mon Application",  # Titre de la page
     page_icon=":rocket:",  # Icône dans l'onglet du navigateur
@@ -9,6 +10,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"  # Sidebar ouverte par défaut
 )
 
+# Charger les données des fichiers JSON
 with open("questions.json", "r") as f:
     questions = json.load(f)
 
@@ -60,8 +62,9 @@ st.markdown(
 
         /* Modifier la largeur de la sidebar */
         section[data-testid="stSidebar"] {
-            min-width: 450px; /* Largeur minimale */
-            max-width: 450px; /* Largeur maximale */
+            min-width: 250px; /* Largeur minimale sur mobile */
+            max-width: 450px; /* Largeur maximale sur desktop */
+            display: block;  /* S'assurer qu'elle est affichée correctement */
         }
 
         .whatsapp-content img {
@@ -91,18 +94,20 @@ st.markdown(
                 font-size: 14px;        /* Réduction de la taille du texte */
             }
 
-            /* Réduction de la sidebar à 300px pour mobile */
+            /* Réduction de la sidebar à 250px pour mobile */
             section[data-testid="stSidebar"] {
-                width: 300px; /* Réduit la largeur de la sidebar */
-                display: block; /* S'assurer qu'elle est bien affichée */
+                width: 250px;  /* Réduit la largeur de la sidebar sur mobile */
+                display: none; /* Masquer la sidebar sur mobile par défaut */
             }
         }
     </style>
     """, unsafe_allow_html=True
 )
 
+# Image dans la sidebar
 st.sidebar.image("https://www.capstudies.com/wp-content/uploads/2020/10/logo-site-web-1.png", width=200)
 
+# Description dans la sidebar
 st.sidebar.markdown(
     """
     ## Qu'est-ce que le modèle RIASEC ?
@@ -120,11 +125,13 @@ st.sidebar.markdown(
     """, unsafe_allow_html=True
 )
 
+# Titre principal
 st.title("Test d'Orientation")
 
 # Code pour gérer les questions et afficher les résultats
 st.markdown("<br><br>", unsafe_allow_html=True)
 
+# Affichage des questions
 for question, answers in questions.items():
     st.markdown(
         f"<div style='font-size: 2rem; font-weight: bold; margin-bottom: 5px;'>{question}</div>",
@@ -141,6 +148,7 @@ for question, answers in questions.items():
     responses[question] = response
     st.markdown("<br><br>", unsafe_allow_html=True)
 
+# Bouton de soumission
 if st.button("Soumettre"):
     if None in responses.values():
         st.warning("Veuillez répondre à toutes les questions avant de soumettre.")
@@ -171,7 +179,7 @@ if st.button("Soumettre"):
         # Tri des types RIASEC par pourcentage décroissant
         sorted_riasec = sorted(riasec_percentages.items(), key=lambda x: x[1], reverse=True)
 
-        # Afficher les résultats
+        # Affichage des résultats
         st.subheader("Résultats du test")
 
         labels = [riasec_type for riasec_type, _ in sorted_riasec]
@@ -192,20 +200,20 @@ if st.button("Soumettre"):
         st.plotly_chart(fig)
 
         for riasec_type, percentage in sorted_riasec:
-            prc_reponses = f"{int(percentage):}%"
-            description = riasec_descriptions[riasec_type]["description"].format(
-                prc_reponses=prc_reponses
-            )
-            st.subheader(f"{riasec_type} - {int(percentage)}%")
-            st.write(description)
+            prc_reponses = f"{int(percentage)}%"
+            description = riasec_descriptions[riasec_type]
+            st.markdown(f"**{riasec_type}** ({prc_reponses}): {description}")
 
-        st.markdown(
-            """
-            <div class="whatsapp-btn-container">
-                <div class="whatsapp-content">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/WhatsApp_logo.svg" alt="WhatsApp logo">
-                    <span class="whatsapp-text">Contactez-nous sur WhatsApp pour plus d'informations !</span>
-                </div>
-            </div>
-            """, unsafe_allow_html=True
-        )
+# Affichage du bouton WhatsApp
+st.markdown(
+    f"""
+    <div class="whatsapp-btn-container">
+        <div class="whatsapp-content">
+            <a href="{whatsapp_link}" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
+                <span class="whatsapp-text">Contactez-nous sur WhatsApp</span>
+            </a>
+        </div>
+    </div>
+    """, unsafe_allow_html=True
+)
