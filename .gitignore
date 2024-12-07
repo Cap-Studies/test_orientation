@@ -2,3 +2,4 @@
 venv/
 *.csv
 get_questions.py
+.streamlit/
