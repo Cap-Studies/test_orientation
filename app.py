@@ -44,10 +44,102 @@ whatsapp_message = "Bonjour, j'aimerais en savoir plus!"
 whatsapp_link = f"https://wa.me/{whatsapp_number}?text={whatsapp_message}"
 
 
+
+def mail_cap(prenom, nom, email, age, ville):
+    try:
+        sender_email = st.secrets["mail"]["sender_email"]
+        sender_password = st.secrets["mail"]["sender_password"]
+
+        receiver_email = sender_email
+        subject = "Nouveau contact test Riasec"
+
+        # Construire le corps de l'email en HTML
+        body_html = f"""
+        <html>
+        <head>
+            <style>
+                body {{
+                    font-family: Arial, sans-serif;
+                    font-size: 14px;
+                    line-height: 1.6;
+                }}
+                h2 {{
+                    color: #2E86C1;
+                }}
+                ul {{
+                    list-style-type: none; /* Supprime les puces */
+                    padding: 0;
+                }}
+                ul li {{
+                    margin-bottom: 10px; /* Ajoute un espacement */
+                }}
+                .info {{
+                    margin-top: 20px;
+                    padding: 10px;
+                    border: 1px solid #ddd;
+                    background-color: #f9f9f9;
+                }}
+            </style>
+        </head>
+        <body>
+            <img src="cid:logo_capstudies" alt="CAPSTUDIES Logo" style="width:200px;height:auto;"/>
+            <h2>Bonjour,</h2>
+            <p>Voici les informations que vous avez fournies :</p>
+            <div class="info">
+                <ul>
+                    <li><b>Nom :</b> {nom}</li>
+                    <li><b>Prénom :</b> {prenom}</li>
+                    <li><b>Ville :</b> {ville}</li>
+                    <li><b>Email :</b> {mail}</li>
+                    <li><b>Âge :</b> {age}</li>
+                </ul>
+            </div>
+            <p>Nous vous remercions pour votre participation.</p>
+        </body>
+        </html>
+        """
+
+        msg = MIMEMultipart(
+            "alternative"
+        )  # Permet d'inclure à la fois texte brut et HTML
+        msg["From"] = sender_email
+        msg["To"] = receiver_email
+        msg["Subject"] = subject
+
+        # Attacher le contenu HTML
+        msg.attach(MIMEText(body_html, "html"))
+
+
+        # Envoi de l'email via SMTP
+        smtp_server = "mail.capstudies.com"
+        smtp_port = 587
+
+        try:
+            with smtplib.SMTP(smtp_server, smtp_port) as server:
+                server.starttls()
+                server.login(
+                    sender_email,
+                    sender_password,
+                )
+                server.sendmail(sender_email, receiver_email, msg.as_string())
+            print("E-mail CAP envoyé avec succès.")
+        except:
+            pass
+
+    except smtplib.SMTPException as e:
+        st.error(f"Erreur SMTP : {e}")
+    except KeyError as ke:
+        st.error(f"Erreur dans les données d'entrée : {ke}")
+    except Exception as e:
+        st.error(f"Erreur inattendue : {e}")
+
+
+
+
 def envoi_resultats(prenom, mail, riasec_scores, riasec_descriptions, graph_fig):
     try:
-        sender_email = st.secrets["gmail"]["sender_email"]
-        sender_password = st.secrets["gmail"]["sender_password"]
+        sender_email = st.secrets["mail"]["sender_email"]
+        sender_password = st.secrets["mail"]["sender_password"]
 
         receiver_email = mail
         subject = "Résultats de votre test RIASEC avec CAPSTUDIES"
@@ -153,7 +245,7 @@ def envoi_resultats(prenom, mail, riasec_scores, riasec_descriptions, graph_fig)
             msg.attach(part)
 
         # Envoi de l'email via SMTP
-        smtp_server = "smtp.gmail.com"
+        smtp_server = "mail.capstudies.com"
         smtp_port = 587
 
         try:
@@ -423,6 +515,7 @@ if "user_info" not in st.session_state:
                         "ville": ville,
                     }
                     st.session_state["form_ready"] = False
+                    mail_cap(prenom, nom, mail, age, ville)
 
                     if recevoir_mail == "oui":
                         envoi_resultats(
