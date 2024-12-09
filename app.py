@@ -10,6 +10,12 @@ import smtplib
 import os
 import requests
 
+villes_maroc = [
+    "Casablanca", "Rabat", "Fès", "Marrakech", "Tanger", "Agadir",
+    "Meknès", "Oujda", "Kenitra", "Tétouan", "Safi", "El Jadida",
+    "Beni Mellal", "Nador", "Taza", "Khouribga", "Ksar El Kebir"
+    # Ajoutez plus de villes si nécessaire
+]
 
 # Configuration de la page
 st.set_page_config(
@@ -114,17 +120,15 @@ def mail_cap(prenom, nom, email, age, ville):
         smtp_server = "mail.capstudies.com"
         smtp_port = 587
 
-        try:
-            with smtplib.SMTP(smtp_server, smtp_port) as server:
-                server.starttls()
-                server.login(
-                    sender_email,
-                    sender_password,
-                )
-                server.sendmail(sender_email, receiver_email, msg.as_string())
+        with smtplib.SMTP(smtp_server, smtp_port) as server:
+            server.starttls()
+            server.login(
+                sender_email,
+                sender_password,
+            )
+            server.sendmail(sender_email, receiver_email, msg.as_string())
             print("E-mail CAP envoyé avec succès.")
-        except:
-            pass
+
 
     except smtplib.SMTPException as e:
         st.error(f"Erreur SMTP : {e}")
@@ -494,7 +498,7 @@ if "user_info" not in st.session_state:
             prenom = st.text_input("Votre prénom :")
             age = st.text_input("Votre âge :")
             mail = st.text_input("Votre email :")
-            ville = st.text_input("Votre ville :")
+            ville = st.selectbox("Votre ville :", villes_maroc)
             recevoir_mail = st.radio(
                 "recevoir les résultats par email", options=["oui", "non"]
             )
@@ -502,11 +506,26 @@ if "user_info" not in st.session_state:
 
             fig = fig_draw()
 
-
-
             if submit_button:
-                # Vérifier que tous les champs sont remplis
-                if nom and prenom and age and mail and ville:
+                errors = False
+
+                # Validation de l'âge
+                if not age.isdigit() or not (10 <= int(age) <= 99):
+                    st.error("Veuillez entrer un âge valide (entre 10 et 99 ans).")
+                    errors = True
+
+                # Validation de l'e-mail
+                if "@" not in mail or "." not in mail:
+                    st.error("Veuillez entrer une adresse e-mail valide.")
+                    errors = True
+
+                # Vérification que tous les champs sont remplis
+                if not (nom and prenom and age and mail and ville):
+                    st.error("Veuillez remplir tous les champs avant de valider.")
+                    errors = True
+
+                # Si aucune erreur, poursuivre le traitement
+                if not errors:
                     st.session_state["user_info"] = {
                         "nom": nom,
                         "prenom": prenom,
@@ -525,9 +544,6 @@ if "user_info" not in st.session_state:
                             riasec_descriptions,
                             fig,
                         )
-
-                else:
-                    st.error("Veuillez remplir tous les champs avant de valider.")
 
     # Afficher les résultats si toutes les étapes sont complétées
 if "riasec_scores" in st.session_state and "user_info" in st.session_state:
