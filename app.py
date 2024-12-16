@@ -307,23 +307,31 @@ st.markdown(
             margin-left: 660px;         /* Décalage pour éviter la sidebar */
         }
 
-         /* Modifier le fond de la page entière */
+        /* Modifier le fond de la page entière */
         .main {
             background-color: #f2f2f2; /* Fond gris clair */
             padding: 20px; /* Ajout d'un espace autour du contenu principal */
             border-radius: 8px; /* Optionnel : coins arrondis */
         }
 
+        /* Ajustement général de la sidebar */
         section[data-testid="stSidebar"] {
             min-width: 250px;
             max-width: 450px;
-        transition: all 0.3s ease; /* Ajoute une transition fluide pour l'ouverture/fermeture */
+            transition: all 0.3s ease; /* Transition fluide pour les changements de taille */
         }
 
+        /* Largeur de la sidebar sur les petits écrans */
         @media only screen and (max-width: 600px) {
             section[data-testid="stSidebar"] {
-            width: 250px; /* Largeur réduite pour les écrans mobiles */
+                width: 50vw; /* Occupe 50% de la largeur de l'écran */
+                max-width: none; /* Supprime la limite de largeur */
             }
+        }
+
+        /* Transition fluide pour l'affichage de la sidebar */
+        .element-container {
+            transition: margin-left 0.3s ease;
         }
 
         .whatsapp-content img {
@@ -355,8 +363,8 @@ st.markdown(
 
             /* Réduction de la sidebar à 250px pour mobile */
             section[data-testid="stSidebar"] {
-                width: 250px;  /* Réduit la largeur de la sidebar sur mobile */
-                display: none; /* Masquer la sidebar sur mobile par défaut */
+                width: 50vw;  /* Réduit la largeur de la sidebar sur mobile */
+                display: block; /* La sidebar reste visible par défaut */
             }
         }
     </style>
