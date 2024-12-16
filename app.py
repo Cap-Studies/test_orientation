@@ -322,7 +322,6 @@ st.markdown(
 
         @media only screen and (max-width: 600px) {
             section[data-testid="stSidebar"] {
-            display: block; /* Laisser la sidebar visible */
             width: 250px; /* Largeur réduite pour les écrans mobiles */
             }
         }
