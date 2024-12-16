@@ -314,11 +314,17 @@ st.markdown(
             border-radius: 8px; /* Optionnel : coins arrondis */
         }
 
-        /* Modifier la largeur de la sidebar */
         section[data-testid="stSidebar"] {
-            min-width: 250px; /* Largeur minimale sur mobile */
-            max-width: 450px; /* Largeur maximale sur desktop */
-            display: block;  /* S'assurer qu'elle est affichée correctement */
+            min-width: 250px;
+            max-width: 450px;
+        transition: all 0.3s ease; /* Ajoute une transition fluide pour l'ouverture/fermeture */
+        }
+
+        @media only screen and (max-width: 600px) {
+            section[data-testid="stSidebar"] {
+            display: block; /* Laisser la sidebar visible */
+            width: 250px; /* Largeur réduite pour les écrans mobiles */
+            }
         }
 
         .whatsapp-content img {
