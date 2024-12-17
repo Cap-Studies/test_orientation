@@ -9,13 +9,9 @@ from email import encoders
 import smtplib
 import os
 import requests
+import streamlit as st
+import streamlit.components.v1 as components
 
-villes_maroc = [
-    "Casablanca", "Rabat", "Fès", "Marrakech", "Tanger", "Agadir",
-    "Meknès", "Oujda", "Kenitra", "Tétouan", "Safi", "El Jadida",
-    "Beni Mellal", "Nador", "Taza", "Khouribga", "Ksar El Kebir"
-    # Ajoutez plus de villes si nécessaire
-]
 
 # Configuration de la page
 st.set_page_config(
@@ -24,6 +20,33 @@ st.set_page_config(
     layout="wide",  # Disposition large
     initial_sidebar_state="expanded",  # Sidebar ouverte par défaut
 )
+
+
+# Script Google Analytics
+GA_CODE = """
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WZSJL9DERM');
+</script>
+"""
+
+# Injecter le script Google Analytics
+components.html(GA_CODE, height=0, scrolling=False)
+
+
+
+villes_maroc = [
+    "Casablanca", "Rabat", "Fès", "Marrakech", "Tanger", "Agadir",
+    "Meknès", "Oujda", "Kenitra", "Tétouan", "Safi", "El Jadida",
+    "Beni Mellal", "Nador", "Taza", "Khouribga", "Ksar El Kebir"
+    # Ajoutez plus de villes si nécessaire
+]
+
 
 # Charger les données des fichiers JSON
 with open("questions.json", "r") as f:
