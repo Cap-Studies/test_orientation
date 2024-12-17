@@ -82,7 +82,25 @@ def mail_cap(prenom, nom, email, age, ville):
         receiver_email = sender_email
         subject = "Nouveau contact test Riasec"
 
-        # Construire le corps de l'email en HTML
+        # Corps de l'e-mail en texte brut (fallback)
+        body_text = f"""
+Bonjour,
+
+Voici les informations que vous avez fournies :
+
+Nom : {nom}
+Prénom : {prenom}
+Ville : {ville}
+Email : {email}
+Âge : {age}
+
+Nous vous remercions pour votre participation.
+
+Cordialement,
+L'équipe CAPSTUDIES
+"""
+
+        # Corps de l'e-mail en HTML (avec image externe)
         body_html = f"""
         <html>
         <head>
@@ -96,11 +114,11 @@ def mail_cap(prenom, nom, email, age, ville):
                     color: #2E86C1;
                 }}
                 ul {{
-                    list-style-type: none; /* Supprime les puces */
+                    list-style-type: none;
                     padding: 0;
                 }}
                 ul li {{
-                    margin-bottom: 10px; /* Ajoute un espacement */
+                    margin-bottom: 10px;
                 }}
                 .info {{
                     margin-top: 20px;
@@ -111,7 +129,8 @@ def mail_cap(prenom, nom, email, age, ville):
             </style>
         </head>
         <body>
-            <img src="cid:logo_capstudies" alt="CAPSTUDIES Logo" style="width:200px;height:auto;"/>
+            <img src="https://www.capstudies.com/wp-content/uploads/2020/10/logo-site-web-1.png" 
+                 alt="CAPSTUDIES Logo" style="width:200px;height:auto;"/>
             <h2>Bonjour,</h2>
             <p>Voici les informations que vous avez fournies :</p>
             <div class="info">
@@ -119,7 +138,7 @@ def mail_cap(prenom, nom, email, age, ville):
                     <li><b>Nom :</b> {nom}</li>
                     <li><b>Prénom :</b> {prenom}</li>
                     <li><b>Ville :</b> {ville}</li>
-                    <li><b>Email :</b> {mail}</li>
+                    <li><b>Email :</b> {email}</li>
                     <li><b>Âge :</b> {age}</li>
                 </ul>
             </div>
@@ -128,30 +147,27 @@ def mail_cap(prenom, nom, email, age, ville):
         </html>
         """
 
-        msg = MIMEMultipart(
-            "alternative"
-        )  # Permet d'inclure à la fois texte brut et HTML
+        # Construire le message avec texte brut et HTML
+        msg = MIMEMultipart("alternative")
         msg["From"] = sender_email
         msg["To"] = receiver_email
         msg["Subject"] = subject
 
-        # Attacher le contenu HTML
+        # Attacher la version texte brut
+        msg.attach(MIMEText(body_text, "plain"))
+
+        # Attacher la version HTML
         msg.attach(MIMEText(body_html, "html"))
 
-
-        # Envoi de l'email via SMTP
+        # Envoi de l'e-mail via SMTP
         smtp_server = "mail.capstudies.com"
         smtp_port = 587
 
         with smtplib.SMTP(smtp_server, smtp_port) as server:
             server.starttls()
-            server.login(
-                sender_email,
-                sender_password,
-            )
+            server.login(sender_email, sender_password)
             server.sendmail(sender_email, receiver_email, msg.as_string())
             print("E-mail CAP envoyé avec succès.")
-
 
     except smtplib.SMTPException as e:
         st.error(f"Erreur SMTP : {e}")
