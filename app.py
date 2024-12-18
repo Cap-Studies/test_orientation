@@ -551,10 +551,8 @@ if "user_info" not in st.session_state:
             age = st.text_input("Votre âge :")
             mail = st.text_input("Votre email :")
             ville = st.selectbox("Votre ville :", villes_maroc)
-            recevoir_mail = st.radio(
-                "recevoir les résultats par email", options=["oui", "non"]
-            )
-            submit_button = st.form_submit_button("Valider")
+            #recevoir_mail = st.radio("recevoir les résultats par email", options=["oui", "non"])
+            submit_button = st.form_submit_button("Recevoir mes résultats")
 
             fig = fig_draw()
 
@@ -587,9 +585,7 @@ if "user_info" not in st.session_state:
                     }
                     st.session_state["form_ready"] = False
                     mail_cap(prenom, nom, mail, age, ville)
-
-                    if recevoir_mail == "oui":
-                        envoi_resultats(
+                    envoi_resultats(
                             prenom,
                             mail,
                             st.session_state["riasec_scores"],
@@ -598,29 +594,29 @@ if "user_info" not in st.session_state:
                         )
 
     # Afficher les résultats si toutes les étapes sont complétées
-if "riasec_scores" in st.session_state and "user_info" in st.session_state:
-
-    st.plotly_chart(fig_draw())
-
-    st.markdown("<br>", unsafe_allow_html=True)
-    for riasec_type, percentage in st.session_state["riasec_scores"]:
-        prc_reponses = f"{int(percentage):}%"
-        description = riasec_descriptions[riasec_type]["description"].format(
-            prc_reponses=prc_reponses
-        )
-        st.markdown(f"### {riasec_type} : {prc_reponses}")
-        st.write(description, unsafe_allow_html=True)
-
-        st.markdown(f"#### Métiers correspondants au profil {riasec_type}:")
-        for metier in riasec_descriptions[riasec_type]["metiers"]:
-            st.markdown(f"- {metier}")
-
-        st.markdown("<br><br>", unsafe_allow_html=True)
+# if "riasec_scores" in st.session_state and "user_info" in st.session_state:
+#
+#     st.plotly_chart(fig_draw())
+#
+#     st.markdown("<br>", unsafe_allow_html=True)
+#     for riasec_type, percentage in st.session_state["riasec_scores"]:
+#         prc_reponses = f"{int(percentage):}%"
+#         description = riasec_descriptions[riasec_type]["description"].format(
+#             prc_reponses=prc_reponses
+#         )
+#         st.markdown(f"### {riasec_type} : {prc_reponses}")
+#         st.write(description, unsafe_allow_html=True)
+#
+#         st.markdown(f"#### Métiers correspondants au profil {riasec_type}:")
+#         for metier in riasec_descriptions[riasec_type]["metiers"]:
+#             st.markdown(f"- {metier}")
+#
+#         st.markdown("<br><br>", unsafe_allow_html=True)
 
         # Bouton "Relancer le test" avec clé unique
-    if st.button("Relancer le test", key="button_restart"):
-        st.session_state.clear()
-        st.rerun()
+if st.button("Relancer le test", key="button_restart"):
+    st.session_state.clear()
+    st.rerun()
 
 
 st.markdown(
