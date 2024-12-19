@@ -161,7 +161,7 @@ L'équipe CAPSTUDIES
 
         # Envoi de l'e-mail via SMTP
         smtp_server = "mail.capstudies.com"
-        smtp_port = 587
+        smtp_port = 465
 
         with smtplib.SMTP(smtp_server, smtp_port) as server:
             server.starttls()
@@ -289,7 +289,7 @@ def envoi_resultats(prenom, mail, riasec_scores, riasec_descriptions, graph_fig)
 
         # Envoi de l'email via SMTP
         smtp_server = "mail.capstudies.com"
-        smtp_port = 587
+        smtp_port = 465
 
         try:
             with smtplib.SMTP(smtp_server, smtp_port) as server:
